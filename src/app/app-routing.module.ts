@@ -5,7 +5,8 @@ const routes: Routes = [
   {
     path: 'invoices',
     loadChildren: () => import('./modules/invoices/invoices.module').then(m => m.InvoicesModule)
-  }, {
+  },
+  {
     path: '**',
     redirectTo: 'invoices'
   }

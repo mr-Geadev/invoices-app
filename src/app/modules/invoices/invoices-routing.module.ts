@@ -1,12 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { InvoicesComponent } from 'src/app/modules/invoices/invoices.component';
+import { InvoicesListPage } from 'src/app/modules/invoices/pages/invoices-list/invoices-list.page';
 
 const routes: Routes = [
   {
-    path: '',
-    component: InvoicesComponent,
+    path: 'list',
+    component: InvoicesListPage,
   },
+  {
+    path: '**',
+    redirectTo: 'list'
+  }
 ];
 
 @NgModule({
