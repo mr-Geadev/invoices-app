@@ -5,6 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { InvoiceFormComponent } from 'src/app/modules/invoices/components/invoice-form/invoice-form.component';
@@ -44,6 +45,7 @@ import { InvoicesService } from './services/invoices.service';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
+    MatSnackBarModule
   ],
   providers: [
     InvoicesApiService,

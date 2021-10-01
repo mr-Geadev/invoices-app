@@ -3,5 +3,7 @@
     Создание счета
   </h1>
 
-  <app-invoice-form></app-invoice-form>
+  <app-invoice-form
+    (onSaveInvoice)="createInvoice($event)"
+  ></app-invoice-form>
 </div>

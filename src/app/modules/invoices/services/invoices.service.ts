@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { publishReplay, refCount, switchMapTo, tap } from 'rxjs/operators';
 import { InvoicesApiService } from 'src/app/modules/invoices/services/invoices-api.service';
@@ -14,11 +15,20 @@ export class InvoicesService {
     refCount()
   )
 
-  constructor(private invoicesApiService: InvoicesApiService) {}
+  constructor(
+    private invoicesApiService: InvoicesApiService,
+    private snackBar: MatSnackBar
+  ) {}
 
   createInvoice(newInvoice: InvoiceBase): Observable<Invoice> {
     return this.invoicesApiService.createInvoice(newInvoice).pipe(
-      tap(() => this.invoicesListUpd.next())
+      tap(() => {
+        this.snackBar.open('Счет создан', 'Закрыть', {
+          horizontalPosition: "right",
+          verticalPosition: "top",
+        });
+        this.invoicesListUpd.next()
+      })
     )
   }
 }
