@@ -6,8 +6,8 @@ export enum InvoiceStatus {
 
 export enum InvoicePaymentMethod {
   CreditCard = 1,
-  DebitCard,
-  ECheck
+  DebitCard = 2,
+  ECheck = 3
 }
 
 export interface InvoiceBase {

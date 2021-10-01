@@ -1,0 +1,49 @@
+<form class="invoice-form" [formGroup]="newInvoice" (submit)="saveInvoice()">
+  <mat-form-field class="invoice-form__field" appearance="fill">
+    <mat-label>Номер счета</mat-label>
+    <input type="email" matInput formControlName="number">
+
+    <mat-error *ngIf="newInvoice.get('number')?.invalid">
+      Заполните поле
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="invoice-form__field" appearance="fill">
+    <mat-label>Сумма</mat-label>
+    <input type="email" matInput formControlName="amount">
+
+    <mat-error *ngIf="newInvoice.get('amount')?.invalid">
+      Введите корректную сумму
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="invoice-form__field" appearance="fill">
+    <mat-label>Тип оплаты</mat-label>
+    <mat-select formControlName="paymentMethod">
+      <mat-option
+        *ngFor="let paymentMethod of InvoicePaymentMethodsList"
+        [value]="paymentMethod">
+        {{ paymentMethod | invoicePaymentMethod }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div class="invoice-form__buttons">
+    <button
+      type="submit"
+      mat-raised-button
+      color="accent"
+      [disabled]="newInvoice.invalid"
+    >
+      Сохранить
+    </button>
+
+    <a
+      mat-raised-button
+      routerLink="../list"
+      color="basic"
+    >
+      Закрыть
+    </a>
+  </div>
+</form>
