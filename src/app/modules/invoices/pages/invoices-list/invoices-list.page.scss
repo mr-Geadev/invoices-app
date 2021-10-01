@@ -1,0 +1,12 @@
+.invoices-list-page {
+  width: 600px;
+  margin: 20px auto 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  &__table {
+    align-self: stretch;
+  }
+}
